@@ -13,7 +13,7 @@ namespace DataAccess.Concrete.EntityFrameWork
     {
         public void Add(Brand entity)
         {
-            using (RentACarContext context = new RentACarContext())
+            using (MyDatabaseContext context = new MyDatabaseContext())
             {
                 var addedEntity = context.Entry(entity);
                 addedEntity.State = EntityState.Added;
@@ -23,7 +23,7 @@ namespace DataAccess.Concrete.EntityFrameWork
 
         public void Delete(Brand entity)
         {
-            using (RentACarContext context = new RentACarContext())
+            using (MyDatabaseContext context = new MyDatabaseContext())
             {
                 var deletedEntity = context.Entry(entity);
                 deletedEntity.State = EntityState.Deleted;
@@ -33,7 +33,7 @@ namespace DataAccess.Concrete.EntityFrameWork
 
         public Brand Get(Expression<Func<Brand, bool>> filter)
         {
-            using (RentACarContext context = new RentACarContext())
+            using (MyDatabaseContext context = new MyDatabaseContext())
             {
                 return context.Set<Brand>().SingleOrDefault(filter);
             }
@@ -41,7 +41,7 @@ namespace DataAccess.Concrete.EntityFrameWork
 
         public List<Brand> GetAll(Expression<Func<Brand, bool>> filter = null)
         {
-            using (RentACarContext context = new RentACarContext())
+            using (MyDatabaseContext context = new MyDatabaseContext())
             {
                 return filter == null ? context.Set<Brand>().ToList() : context.Set<Brand>().Where(filter).ToList();
             }
@@ -49,7 +49,7 @@ namespace DataAccess.Concrete.EntityFrameWork
 
         public void Update(Brand entity)
         {
-            using (RentACarContext context = new RentACarContext())
+            using (MyDatabaseContext context = new MyDatabaseContext())
             {
                 var updatedEntity = context.Entry(entity);
                 updatedEntity.State = EntityState.Modified;
