@@ -16,6 +16,18 @@ namespace DataAccess.Concrete.EntityFrameWork
         public DbSet<Car> Cars { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Color> Colors { get; set; }
+        public DbSet<Buyer> Buyers { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //modelBuilder.HasDefaultSchema("dbo");//dbo defaulttur o yüzden yazmaya gerek yok
+            modelBuilder.Entity<Buyer>().ToTable("Customers","dbo");//dbo defaulttur o yüzden yazmaya gerek yok
+            modelBuilder.Entity<Buyer>().Property(p => p.BuyerId).HasColumnName("Id");
+            modelBuilder.Entity<Buyer>().Property(p => p.Name).HasColumnName("FirstName");
+            modelBuilder.Entity<Buyer>().Property(p => p.Surname).HasColumnName("LastName");
+        }
+
+
 
 
     }

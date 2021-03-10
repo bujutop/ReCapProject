@@ -22,7 +22,7 @@ namespace ConseoleUI
                 "Description: {5}",car.Id,car.BrandId,car.ColorId,car.ModelYear,car.DailyPrice,car.Description));
 
             //Add new car,write new car
-            carManager.Add(new Car { BrandId = 3, ColorId = 201, ModelYear = 2020, DailyPrice = 1500, Description = "Some car", CarName = "Ford" });
+            carManager.Add(new Car {Id=5, BrandId = 3, ColorId = 201, ModelYear = 2020, DailyPrice = 1500, Description = "Some car", CarName = "Ford" });
             cars = carManager.GetAll();
             var newCar = cars.Last();
             Console.WriteLine("\n" + "Add new car and write only new car");
@@ -75,9 +75,17 @@ namespace ConseoleUI
             WhiteCars.ForEach(c => Console.WriteLine(c.CarName));
 
             Console.WriteLine("----");
-            carManager.Add(new Car { Id = 6, BrandId = 2, ColorId = 101, DailyPrice = 0, ModelYear = 2020, CarName = "White mercedes", Description = "Just rent it" });
+            carManager.Add(new Car {Id=6,  BrandId = 2, ColorId = 101, DailyPrice = 0, ModelYear = 2020, CarName = "White mercedes", Description = "Just rent it" });
             cars = carManager.GetAll();
 
+            //Custom Mapping
+            Console.WriteLine("-----");
+            Console.WriteLine("Custom Mapping");
+            BuyerManager buyerManager = new BuyerManager(new EfBuyerDal());
+            foreach (var buyer in buyerManager.GetAll())
+            {
+                Console.WriteLine("Customer id: {0}, first name: {1}, last name: {2}",buyer.BuyerId,buyer.Name,buyer.Surname);
+            }
 
 
 
