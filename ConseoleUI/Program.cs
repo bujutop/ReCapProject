@@ -20,15 +20,15 @@ namespace ConseoleUI
             cars.ForEach(car => Console.WriteLine("Car Id: {0}, Brand Number: {1}, Color Number: {2}," +
                 " Model Year: {3}, Daily Price: {4}, " +
                 "Description: {5}",car.Id,car.BrandId,car.ColorId,car.ModelYear,car.DailyPrice,car.Description));
-            
+
             //Add new car,write new car
-            carManager.Add(new Car { Id = 5, BrandId = 3, ColorId = 201, ModelYear = 2020, DailyPrice = 1500, Description= "Some car" ,CarName="Ford"});
+            carManager.Add(new Car { BrandId = 3, ColorId = 201, ModelYear = 2020, DailyPrice = 1500, Description = "Some car", CarName = "Ford" });
             cars = carManager.GetAll();
             var newCar = cars.Last();
             Console.WriteLine("\n" + "Add new car and write only new car");
             Console.WriteLine("Car Id: {0}, Brand Number: {1}, Color Number: {2}, " +
                 "Model Year: {3}, Daily Price: {4}," +
-                " Description: {5}", newCar.Id, newCar.BrandId, newCar.ColorId, newCar.ModelYear, 
+                " Description: {5}", newCar.Id, newCar.BrandId, newCar.ColorId, newCar.ModelYear,
                 newCar.DailyPrice, newCar.Description);
 
             //Delete car by id number
