@@ -1,4 +1,5 @@
-﻿using DataAccess.Abstract;
+﻿using Core.DataAccess.EntityFramework;
+using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -8,34 +9,8 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntityFrameWork
 {
-    public class EfBuyerDal : IBuyerDal
+    public class EfBuyerDal : EfEntityRepositoryBase<Buyer,MyDatabaseContext>,IBuyerDal
     {
-        public void Add(Buyer entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(Buyer entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Buyer Get(Expression<Func<Buyer, bool>> filter)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Buyer> GetAll(Expression<Func<Buyer, bool>> filter = null)
-        {
-            using (MyDatabaseContext context = new MyDatabaseContext())
-            {
-                return filter == null ? context.Set<Buyer>().ToList() : context.Set<Buyer>().Where(filter).ToList();
-            }
-        }
-
-        public void Update(Buyer entity)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

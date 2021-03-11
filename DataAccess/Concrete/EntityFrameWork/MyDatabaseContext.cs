@@ -1,4 +1,5 @@
 ﻿using Entities.Concrete;
+using Entities.DTOs;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace DataAccess.Concrete.EntityFrameWork
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Color> Colors { get; set; }
         public DbSet<Buyer> Buyers { get; set; }
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
