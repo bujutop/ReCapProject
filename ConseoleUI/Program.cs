@@ -18,13 +18,18 @@ namespace ConseoleUI
 
             //BrandTest();
             //ColorTest();
+            //DtoTest();
+
+        }
+
+        private static void DtoTest()
+        {
             CarManager carManager = new CarManager(new EfCarDal());
             foreach (var car in carManager.GetCarDetails())
             {
                 Console.WriteLine("Car name: {0}, brand name: {1}, color name: {2}, daily price: {3}"
-                    ,car.CarName,car.BrandName,car.ColorName,car.DailyPrice);
+                    , car.CarName, car.BrandName, car.ColorName, car.DailyPrice);
             }
-
         }
 
         private static void ColorTest()
