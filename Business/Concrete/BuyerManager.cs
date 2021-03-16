@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
@@ -16,9 +18,9 @@ namespace Business.Concrete
             _buyerDal = buyerDal;
         }
 
-        public List<Buyer> GetAll()
+        public IDataResult<List<Buyer>> GetAll()
         {
-            return _buyerDal.GetAll();
+            return new SuccessDataResult<List<Buyer>>(_buyerDal.GetAll(),Messages.GetAll);
         }
     }
 }
