@@ -20,6 +20,26 @@ namespace ConseoleUI
             //ColorTest();
             //DtoTest();
 
+            //AddCustomer();
+
+            //AddRental();
+
+        }
+
+        private static void AddRental()
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            var result = rentalManager.Add(new Rental { CustomerId = 2, CarId = 2, RentDate = DateTime.Now });
+            Console.WriteLine(result.Message);
+        }
+
+        private static void AddCustomer()
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            var result = customerManager.Add(new Customer { UserId = 1, CompanyName = "Kumpanya" });
+            Console.WriteLine(result.Message);
+            var customers = customerManager.GetAll().Data;
+            customers.ForEach(c => Console.WriteLine("Customer Id:{0}, UserId:{1}, Compan name:{2}", c.CustomerId, c.UserId, c.CompanyName));
         }
 
         private static void DtoTest()
