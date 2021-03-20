@@ -23,7 +23,12 @@ namespace ConseoleUI
             //AddCustomer();
 
             //AddRental();
-
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            var result = rentalManager.GetAll();
+            foreach (var item in result.Data)
+            {
+                Console.WriteLine(item.CarId);
+            }
         }
 
         private static void AddRental()
