@@ -20,7 +20,7 @@ namespace Business.ValidationRules.FluentValidation
 
         private bool NoG(string arg)
         {
-            return arg.Contains("ğ");
+            return !arg.Contains("ğ");
         }
     }
 }
