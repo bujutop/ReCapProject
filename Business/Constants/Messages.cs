@@ -16,6 +16,7 @@ namespace Business.Constants
         public static string GetAllFail = "Listing failure";
         public static string GetById = "selected Item listed";
         public static string GetByIdFail = "selected Item listing failure";
+        public static string NoG = "ğ is an invalid character";
 
 
 

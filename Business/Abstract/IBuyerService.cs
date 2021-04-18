@@ -9,5 +9,6 @@ namespace Business.Abstract
     public interface IBuyerService
     {
         IDataResult<List<Buyer>> GetAll();
+        IResult Add(Buyer buyer);
     }
 }
